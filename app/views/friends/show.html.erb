@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+
+<div class="jumbotron bg-secondary p-5 rounded", style="font-family:georgia">
+  <h1 class="display-4">
+<%= @friend.first_name %> | <%= @friend.last_name %></h1>
+<p class="lead"><%= @friend.email %> | <%= @friend.phpne %> | <%= @friend.twitter %></p>
+<%= link_to "Edit", edit_friend_path, class:"btn btn-success btn-md px-3" %>
+<%= link_to "Break Up", @friend, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger mx-2 px-3" %>
+<%= link_to "Back", friends_path, class:"btn btn-outline-dark btn-md px-3" %>
+
+</div>
+
+

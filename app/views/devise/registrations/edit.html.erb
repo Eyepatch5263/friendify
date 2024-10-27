@@ -1,0 +1,58 @@
+
+<div class="card" style="width: full; font-family:georgia">
+  <div class="card-body">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <br/>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+    
+      <div class="field form-group" style:"font-family:georgia">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"Email", class:"form-control" %>
+      </div>
+    
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+    
+      <br/>
+      <div class="field form-group">
+        <%= f.password_field :password, autocomplete: "new-password",placeholder:"Password (leave blank if you don't want to change it)",class:"form-control" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+    
+      <br/>
+      <div class="field form-group">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"Confirm Password",class:"form-control" %>
+      </div>
+    
+      <br/>
+      <div class="field form-group">
+        <%= f.password_field :current_password, autocomplete: "current-password",placeholder:"we need your current password to confirm your changes",class:"form-control" %>
+      </div>
+    
+      <br/>
+      <div class="actions">
+        <%= f.submit "Update Profile", class:"btn btn-dark" %>
+      </div>
+    <% end %> 
+  </div>
+</div>
+
+<br/>
+<div class="card" style="width: full; font-family:georgia">
+  <div class="card-body">
+    <h3 class="card-title">Delete My Account</h3>
+
+    <div class="container d-flex flex-row px-0">
+    <%= link_to "Back", :back,class:"btn btn-outline-dark" %>
+    <%= button_to "Delete", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class:"btn btn-outline-danger mx-3" %>
+    </div>
+      </div>
+</div>
+
+
+
+
